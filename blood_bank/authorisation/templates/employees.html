@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>GoodWill | Donros</title>
+    <title>GoodWill | Employees</title>
     <style>
         .row-content {
             margin: 0px auto;
@@ -38,14 +38,14 @@
             <li class="nav-item">
               <a class="nav-link" href="home.html"> Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="donors.html"> Donors</a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link active" href="donors.html"> Donors</a>
+                <a class="nav-link active" href="employees.html"> Employees</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="employees.html"> Employees</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="hospitals.html"> Hospitals</a>
+                <a class="nav-link" href="#"> Hospitals</a>
             </li>
           </ul>
         </div>
@@ -53,7 +53,7 @@
       <div class="container">
           <div class="row row-content">
               <div class="col">
-                  <h3>The list of our generous donors</h3>
+                  <h3>The list of our hardworking employees</h3>
               </div>
           </div>
           <div class="row row-content">
@@ -63,11 +63,11 @@
                           <th>Id</th>
                           <th>Name</th>
                           <th>Date of Birth</th>
-                          <th>Contact</th>
+                          <th>Salary (₹)</th>
                           <th>Address</th>
-                          <th>Blood Group</th>
-                          <th>Cost (₹/Pint)</th>
-                          <th>Disease & Infections</th>
+                          <th>Status</th>
+                          <th>Contact</th>
+                          <th>Qualifications</th>
                       </tr>
                   </thead>
               </table>
@@ -77,7 +77,7 @@
               <div class="modal-dialog" role="content">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Add a Donor</h4>
+                            <h4 class="modal-title">Add an Employee</h4>
                             <button type="button" class="close" id="xl">
                                 &times;
                             </button>
@@ -97,9 +97,9 @@
                                     </dd>
                                 </dl>
                                 <dl class="row">
-                                    <dd class="col-12 col-md-2">Contact</dd>
+                                    <dd class="col-12 col-md-2">Salary (₹)</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="number" class="form-control" name="contact" placeholder="Contact" id="contact" />
+                                        <input type="number" class="form-control" name="salary" placeholder="Salary" id="salary" />
                                     </dd>
                                 </dl>
                                 <dl class="row">
@@ -109,21 +109,21 @@
                                     </dd>
                                 </dl>
                                 <dl class="row">
-                                    <dd class="col-12 col-md-2">Blood Group</dd>
+                                    <dd class="col-12 col-md-2">Status</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="text" class="form-control" name="bg" placeholder="Blood Group" id="bg" />
+                                        <input type="text" class="form-control" name="status" placeholder="Status" id="status" />
                                     </dd>
                                 </dl>
                                 <dl class="row">
-                                    <dd class="col-12 col-md-2">Cost (₹/Pint)</dd>
+                                    <dd class="col-12 col-md-2">Contact</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="number" class="form-control" name="cost" placeholder="Cost" id="cost" />
+                                        <input type="number" class="form-control" name="contact" placeholder="Contact" id="contact" />
                                     </dd>
                                 </dl>
                                 <dl class="row">
-                                    <dd class="col-12 col-md-2">Disease & Infections</dd>
+                                    <dd class="col-12 col-md-2">Qualificati- ons</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="text" class="form-control" name="dni" placeholder="Disease & Infections" id="dni" />
+                                        <input type="text" class="form-control" name="qual" placeholder="Qualifications" id="qual" />
                                     </dd>
                                 </dl>
                                 <dl class="row">
@@ -138,7 +138,7 @@
           </div>
           <div class="row row-content">
             <div class="col text-right mr-5 button">
-                <a role="button" class="btn btn-primary" id="addDonorButton">Add a Donor</a>
+                <a role="button" class="btn btn-primary" id="addDonorButton">Add an Employee</a>
             </div>
           </div>
       </div>
