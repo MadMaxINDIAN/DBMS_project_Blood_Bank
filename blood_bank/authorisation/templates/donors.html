@@ -28,7 +28,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="home.html">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,20 +57,22 @@
               </div>
           </div>
           <div class="row row-content">
-              <table class="table">
-                  <thead class="thead-light">
-                      <tr>
-                          <th>Id</th>
-                          <th>Name</th>
-                          <th>Date of Birth</th>
-                          <th>Contact</th>
-                          <th>Address</th>
-                          <th>Blood Group</th>
-                          <th>Cost (₹/Pint)</th>
-                          <th>Disease & Infections</th>
-                      </tr>
-                  </thead>
-              </table>
+              <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Blood Group</th>
+                            <th>Cost (₹/Pint)</th>
+                            <th>Disease & Infections</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
           </div>
 
           <div id="addDonorModal" class="modal fade" role="dialog">
@@ -137,7 +139,7 @@
               </div>
           </div>
           <div class="row row-content">
-            <div class="col text-right mr-5 button">
+            <div class="col text-right button">
                 <a role="button" class="btn btn-primary" id="addDonorButton">Add a Donor</a>
             </div>
           </div>

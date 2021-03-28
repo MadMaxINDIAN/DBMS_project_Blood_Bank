@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>GoodWill | Employees</title>
+    <title>GoodWill | Hospitals</title>
     <style>
         .row-content {
             margin: 0px auto;
@@ -41,11 +41,11 @@
             <li class="nav-item">
               <a class="nav-link" href="donors.html"> Donors</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link active" href="employees.html"> Employees</a>
-            </li>
             <li class="nav-item">
-                <a class="nav-link" href="hospitals.html"> Hospitals</a>
+                <a class="nav-link" href="employees.html"> Employees</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link active" href="hospitals.html"> Hospitals</a>
             </li>
           </ul>
         </div>
@@ -53,7 +53,7 @@
       <div class="container">
           <div class="row row-content">
               <div class="col">
-                  <h3>The list of our hardworking employees</h3>
+                  <h3>The list of hospitals we provide blood to</h3>
               </div>
           </div>
           <div class="row row-content">
@@ -63,12 +63,8 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>Date of Birth</th>
-                            <th>Salary (₹)</th>
-                            <th>Address</th>
-                            <th>Status</th>
                             <th>Contact</th>
-                            <th>Qualifications</th>
+                            <th>Address</th>
                         </tr>
                     </thead>
                 </table>
@@ -79,7 +75,7 @@
               <div class="modal-dialog" role="content">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Add an Employee</h4>
+                            <h4 class="modal-title">Add a Hospital</h4>
                             <button type="button" class="close" id="xl">
                                 &times;
                             </button>
@@ -93,39 +89,14 @@
                                     </dd>
                                 </dl>
                                 <dl class="row">
-                                    <dd class="col-12 col-md-2">Date of Birth</dd>
-                                    <dd class="col-12 col-md-10">
-                                        <input type="date" class="form-control" name="dob" id="dob" />
-                                    </dd>
-                                </dl>
-                                <dl class="row">
-                                    <dd class="col-12 col-md-2">Salary (₹)</dd>
-                                    <dd class="col-12 col-md-10">
-                                        <input type="number" class="form-control" name="salary" placeholder="Salary" id="salary" />
-                                    </dd>
-                                </dl>
-                                <dl class="row">
-                                    <dd class="col-12 col-md-2">Address</dd>
-                                    <dd class="col-12 col-md-10">
-                                        <textarea class="form-control" id="address" name="address" rows="3"></textarea>
-                                    </dd>
-                                </dl>
-                                <dl class="row">
-                                    <dd class="col-12 col-md-2">Status</dd>
-                                    <dd class="col-12 col-md-10">
-                                        <input type="text" class="form-control" name="status" placeholder="Status" id="status" />
-                                    </dd>
-                                </dl>
-                                <dl class="row">
                                     <dd class="col-12 col-md-2">Contact</dd>
                                     <dd class="col-12 col-md-10">
                                         <input type="number" class="form-control" name="contact" placeholder="Contact" id="contact" />
                                     </dd>
-                                </dl>
-                                <dl class="row">
-                                    <dd class="col-12 col-md-2">Qualificati- ons</dd>
+                                </dl>                                <dl class="row">
+                                    <dd class="col-12 col-md-2">Address</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="text" class="form-control" name="qual" placeholder="Qualifications" id="qual" />
+                                        <textarea class="form-control" id="address" name="address" rows="3"></textarea>
                                     </dd>
                                 </dl>
                                 <dl class="row">
@@ -140,7 +111,7 @@
           </div>
           <div class="row row-content">
             <div class="col text-right button">
-                <a role="button" class="btn btn-primary" id="addDonorButton">Add an Employee</a>
+                <a role="button" class="btn btn-primary" id="addDonorButton">Add a Hospital</a>
             </div>
           </div>
       </div>
