@@ -13,6 +13,25 @@
 
     <title>GoodWill | Donros</title>
     <style>
+    /* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
         .row-content {
             margin: 0px auto;
             padding: 50px 0px;
@@ -67,9 +86,21 @@
                             <th>Contact</th>
                             <th>Address</th>
                             <th>Blood Group</th>
-                            <th>Cost (₹/Pint)</th>
+                            <th>Quantity</th>
                             <th>Disease & Infections</th>
                         </tr>
+                        {% for d in donor %}
+                        <tr>
+                            <td>{{ d.id }}</td>
+                            <td>{{ d.name }}</td>
+                            <td>{{ d.dob }}</td>
+                            <td>{{ d.contact }}</td>
+                            <td>{{ d.address }}</td>
+                            <td>{{ d.blood_group }}</td>
+                            <td>{{ d.quantity }}</td>
+                            <td>{{ d.disease_infection }}</td>
+                        </tr>
+                        {% endfor %}
                     </thead>
                 </table>
             </div>
@@ -85,7 +116,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action='' method='POST'>
+                            {% csrf_token %}
                                 <dl class="row">
                                     <dd class="col-12 col-md-2">Name</dd>
                                     <dd class="col-12 col-md-10">
@@ -113,19 +145,28 @@
                                 <dl class="row">
                                     <dd class="col-12 col-md-2">Blood Group</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="text" class="form-control" name="bg" placeholder="Blood Group" id="bg" />
+                                        <select name="blood_group" class="form-control" id="bg">
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O+">O+</option>
+                                        </select>
                                     </dd>
                                 </dl>
                                 <dl class="row">
-                                    <dd class="col-12 col-md-2">Cost (₹/Pint)</dd>
+                                    <dd class="col-12 col-md-2">Quantity</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="number" class="form-control" name="cost" placeholder="Cost" id="cost" />
+                                        <input type="number" class="form-control" name="quantity" placeholder="Quantity" id="cost" />
                                     </dd>
                                 </dl>
                                 <dl class="row">
                                     <dd class="col-12 col-md-2">Disease & Infections</dd>
                                     <dd class="col-12 col-md-10">
-                                        <input type="text" class="form-control" name="dni" placeholder="Disease & Infections" id="dni" />
+                                        <input type="text" class="form-control" name="disease_infection" placeholder="Disease & Infections" id="dni" />
                                     </dd>
                                 </dl>
                                 <dl class="row">

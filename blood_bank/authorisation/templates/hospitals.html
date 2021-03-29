@@ -13,6 +13,25 @@
 
     <title>GoodWill | Hospitals</title>
     <style>
+    /* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
         .row-content {
             margin: 0px auto;
             padding: 50px 0px;
@@ -66,6 +85,15 @@
                             <th>Contact</th>
                             <th>Address</th>
                         </tr>
+                        {% for h in hospital %}
+                        <tr>
+                            <td>{{ h.id }}</td>
+                            <td>{{ h.name }}</td>
+                            <td>{{ h.contact }}</td>
+                            <td>{{ h.address }}</td>
+                        </tr>
+                        {% endfor %}
+                        
                     </thead>
                 </table>
             </div>
@@ -81,7 +109,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action='' method='post'>
+                            {% csrf_token %}
                                 <dl class="row">
                                     <dd class="col-12 col-md-2">Name</dd>
                                     <dd class="col-12 col-md-10">

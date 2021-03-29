@@ -1,5 +1,7 @@
 import uuid
-from django.shortcuts import render
+from .models import *
+from .forms import *
+from django.shortcuts import render, redirect
 
 # Create your views here.
 def uniqueidgenerator():
@@ -10,4 +12,18 @@ def uniqueidgenerator():
         return uniqueidgenerator()
 
 def donor(req):
-    return render(req, 'donors.html')
+    form = CreateDonor()
+    context = {
+        'form': form
+    }
+    if req.method == 'POST':
+        form = CreateDonor(req.POST)
+        print(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/d/')
+        else:
+            print('Form Invalid')
+    donor = Donor.objects.filter()
+    context['donor'] = donor
+    return render(req, 'donors.html', context= context)

@@ -1,5 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .form import *
 
 # Create your views here.
 def hospitals(req):
-    return render(req, 'hospitals.html')
+    form = CreateHospital()
+    context = {
+        'form': form
+    }
+    if req.method == 'POST':
+        form = CreateHospital(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/h/')
+        else:
+            print('Form Invalid')
+    hospital = Hospital.objects.filter()
+    context['hospital'] = hospital
+    return render(req, 'hospitals.html', context=context)
