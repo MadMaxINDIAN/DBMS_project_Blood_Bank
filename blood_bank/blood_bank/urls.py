@@ -19,5 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('u/', include('authorisation.urls')),
-    path('', include('blood_bank_app.urls'))
+    path('', include('blood_bank_app.urls')),
+    path('d/', include('donor.urls')),
+    path('h/', include('hospital.urls')),
 ]

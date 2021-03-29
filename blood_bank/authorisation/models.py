@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 import uuid
 
 # Create your models here.
-class Profile(models.Model):
+class Employees(models.Model):
     id = models.BigIntegerField(primary_key=True, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField()

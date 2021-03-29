@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blood_bank_app',
     'authorisation',
+    'hospital',
+    'donor'
 ]
 
 MIDDLEWARE = [
