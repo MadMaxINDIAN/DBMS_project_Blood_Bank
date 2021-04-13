@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'blood_bank_app',
     'authorisation',
     'hospital',
-    'donor'
+    'donor',
+    'orders'
 ]
 
 MIDDLEWARE = [

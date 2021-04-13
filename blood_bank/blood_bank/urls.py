@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('blood_bank_app.urls')),
     path('d/', include('donor.urls')),
     path('h/', include('hospital.urls')),
+    path('o/', include('orders.urls')),
 ]
