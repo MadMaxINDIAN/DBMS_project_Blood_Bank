@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>GoodWill | Orders</title>
+    <style>
+    /* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+        .row-content {
+            margin: 0px auto;
+            padding: 50px 0px;
+            border-bottom: 1px ridge;
+        }
+        .table td, th {
+            text-align: center;
+        }
+        .button {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="home.html">
+            <img src="../../static/images/logo.png" alt="GoodWill" width="50" height="50" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/"> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/d/"> Donors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="employees.html"> Employees</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/h/"> Hospitals</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+          <div class="row row-content">
+              <div class="col">
+                  <h3>Orders Received till now</h3>
+              </div>
+          </div>
+          <div class="row row-content">
+              <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Hospital</th>
+                            <th>Blood Group</th>
+                            <th>Quantity</th>
+                            
+                        </tr>
+                        {% for o in orders %}
+                        <tr>
+                            <td>{{ o.Hospital }}</td>    
+                            <td>{{ o.blood_group }}</td>
+                            <td>{{ o.quantity }}</td>
+                           
+                        </tr>
+                        {% endfor %}
+                    </thead>
+                </table>
+            </div>
+          </div>
+
+          <div id="addOrderModal" class="modal fade" role="dialog">
+              <div class="modal-dialog" role="content">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add an Order</h4>
+                            <button type="button" class="close" id="xl">
+                                &times;
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action='' method="POST">
+                                {%csrf_token%}
+                               {{form}}
+                               <dl class="row">
+                                <dd class="col-12 text-right">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                </dd>
+                            </dl>
+                            </form>
+                            <!-- <form action='' method='POST'>
+                            {% csrf_token %}
+                                <dl class="row">
+                                    <dd class="col-12 col-md-2">Hospital</dd>
+                                    <dd class="col-12 col-md-10">
+                                        <td><select name="Hospital" required id="id_Hospital" multiple>
+                                        </select></td>
+                                        <input type="text" class="form-control" name="Hospital" placeholder="Hospital" id="id_Hospital" />
+                                    </dd>
+                                </dl>
+                                
+                                
+                                <dl class="row">
+                                    <dd class="col-12 col-md-2">Blood Group</dd>
+                                    <dd class="col-12 col-md-10">
+                                        <select name="blood_group" class="form-control" id="bg">
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O+">O+</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dd class="col-12 col-md-2">Quantity</dd>
+                                    <dd class="col-12 col-md-10">
+                                        <input type="number" class="form-control" name="quantity" placeholder="Quantity" id="cost" />
+                                    </dd>
+                                </dl>
+                                
+                                <dl class="row">
+                                    <dd class="col-12 text-right">
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </dd>
+                                </dl>
+                            </form> -->
+                        </div>
+                    </div>
+              </div>
+          </div>
+          <div class="row row-content">
+            <div class="col text-right button">
+                <a role="button" class="btn btn-primary" id="addOrderButton">Place an Order</a>
+            </div>
+          </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script>
+          $(document).ready(function() {
+              $('#addOrderButton').click(function() {
+                $('#addOrderModal').modal('toggle');
+              });
+              $('#xl').click(function() {
+                $('#addOrderModal').modal('hide');
+              });
+          });
+      </script>
+</body>
+</html>
