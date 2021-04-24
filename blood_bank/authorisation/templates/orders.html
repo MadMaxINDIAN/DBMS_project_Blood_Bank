@@ -60,16 +60,20 @@
               <a class="nav-link" href="/"> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/d/"> Donors</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="employees.html"> Employees</a>
+              <a class="nav-link" href="/d/"> Donors</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/h/"> Hospitals</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link active " href="/o/"> Orders</a>
+            </li>
           </ul>
-        </div>
+        </div><div>
+        <ul><li class="nav-item">
+                  <a href="/u/logout_user"><button class="btn btn-danger me-1">Log out</button></a>
+                </li>
+                </ul></div>
       </nav>
       <div class="container">
           <div class="row row-content">
@@ -82,6 +86,7 @@
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
+                            <th>ID</th>
                             <th>Hospital</th>
                             <th>Blood Group</th>
                             <th>Quantity</th>
@@ -89,6 +94,7 @@
                         </tr>
                         {% for o in orders %}
                         <tr>
+                            <td>{{ o.id }}</td>    
                             <td>{{ o.Hospital }}</td>    
                             <td>{{ o.blood_group }}</td>
                             <td>{{ o.quantity }}</td>

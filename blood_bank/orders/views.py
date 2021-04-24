@@ -1,9 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .form import *
 from .models import *
 from hospital.models import *
 
 # Create your views here.
+@login_required(login_url="/u/login_user")
 def orders(req):
     form = CreateOrder()
     print(form.as_p)
@@ -26,4 +28,4 @@ def orders(req):
     #         print('Form Invalid')
     # orders = Order.objects.filter()
     # context['orders'] = orders
-    return render(req, 'orders.html', context={'form':form.as_p,'orders':orders})
+    return render(req, 'orders.html', context={'form':form.as_p,'orders':orders,'authenticated' : req.user.is_authenticated})

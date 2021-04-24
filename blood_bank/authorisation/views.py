@@ -29,14 +29,7 @@ def create_user(req):
             user = User.objects.get(username=user)
             Profile(id=user.id, user=user).save()
             messages.success(req, "Account has been created for " + user.username)
-            
-            # SENDING MAIL TO THE USER
-            subject = 'Welcome to thePythoneer world'
-            message = f'Hi {user.username}, thank you for registering in thePythoneer.tech.'
-            email_from = settings.EMAIL_HOST_USER
-            recipient_list = [user.email, ] 
-            send_mail( subject, message, email_from, recipient_list )
-
+        
             return redirect("/u/login_user")
         else:
             for key in form.errors:
@@ -59,11 +52,6 @@ def login_user(req):
         user = authenticate(req, username=username, password=password)
         if user is not None:
             login(req, user)
-            subject = 'Welcome to thePythoneer world'
-            message = f'Hi {user.username}, thank you for registering in thePythoneer.tech.'
-            email_from = settings.EMAIL_HOST_USER
-            recipient_list = [user.email, ]
-            send_mail( subject, message, email_from, recipient_list, html_message=render_to_string("register-mail.html", {'username': req.user.username}))
             return redirect("/")
         else:
             messages.info(req, "Username or Password is incorrect")
@@ -83,6 +71,7 @@ def profile(req,id):
     }
     return render(req, "page-user.html", context)
 
+@login_required(login_url="/u/login_user")
 def logout_user(req):
     logout(req)
     return redirect("/u/login_user")

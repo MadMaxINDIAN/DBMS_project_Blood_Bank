@@ -1,6 +1,7 @@
 import uuid
 from .models import *
 from .forms import *
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -11,10 +12,12 @@ def uniqueidgenerator():
     else:
         return uniqueidgenerator()
 
+@login_required(login_url="/u/login_user")
 def donor(req):
     form = CreateDonor()
     context = {
-        'form': form
+        'form': form,
+        'authenticated' : req.user.is_authenticated
     }
     if req.method == 'POST':
         form = CreateDonor(req.POST)

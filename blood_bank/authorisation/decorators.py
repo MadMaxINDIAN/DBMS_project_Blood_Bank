@@ -8,15 +8,9 @@ def unauthenticted_user_only(view_func):
         return view_func(req, *args, **kwargs)
     return wrapper_func
 
-
-def allowed_user(allowed_roles = []):
-    def decorator(view_func):
-        def wrapper_func(req, *args, **kwargs):
-            group = []
-            for o in req.user.groups.all():
-                group.append(o.name)
-            if any(item in group for item in allowed_roles):
-                return view_func(req, *args, **kwargs)
-            return render(req, "acess_denied.html")
-        return wrapper_func
-    return decorator
+def authenticted_user_only(view_func):
+    def wrapper_func(req, *args, **kwargs):
+        if req.user.is_authenticated:
+            return view_func(req, *args, **kwargs)
+        return redirect("/")
+    return wrapper_func
